@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import report.Report;
 
 public class LoginPage extends DriverManager {
 
@@ -15,6 +16,7 @@ public class LoginPage extends DriverManager {
 
 
     public void logar(String user, String senha){
+        Report.takeScreenShot();
         getDriver().findElement(txtEmail).sendKeys(user);
         getDriver().findElement(txtSenha).sendKeys(senha);
         getDriver().findElement(btnLogar).submit();
@@ -22,9 +24,11 @@ public class LoginPage extends DriverManager {
 
     public boolean validarMesagemLoginInvalido(String msg){
         WebDriverWait wait = new WebDriverWait(getDriver(),30);
-
-        return wait.until(ExpectedConditions
+        boolean valid = false;
+        valid = wait.until(ExpectedConditions
                 .elementToBeClickable
                         (By.xpath("//div[contains(text(),'"+msg+"')]"))).isDisplayed();
+        Report.takeScreenShot();
+        return valid;
     }
 }

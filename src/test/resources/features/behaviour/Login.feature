@@ -7,7 +7,7 @@ Funcionalidade: Login
     Dado que eu seja um usuario
 
   Cenario: Executar Login com credencias validas
-    Quando eu logar com usuario "teste123@teste.com.br" e senha "1234"
+    Quando eu logar com usuario "teste123@teste.com.br" e senha "12345"
     Entao serie redirecionado para o menu principal
 
   Cenario: Executar Login com credencias invalidas
@@ -22,4 +22,3 @@ Funcionalidade: Login
     Exemplos:
       | Usuario                | Senha | Mensagen                         |
       | teste123@teste.com.br  | 12345 | Problemas com o login do usuário |
-      | teste123@teste.com.br1 | 1234  | Usuario bloqueado                |
